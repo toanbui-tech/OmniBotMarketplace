@@ -17,7 +17,7 @@ WORKDIR /app/admin/.medusa/server
 RUN yarn install --production --frozen-lockfile
 
 # Copy environment variables
-COPY ../../admin/.env.production .env.production
+COPY ../../.env.production .env.production
 
 EXPOSE 9000
 
