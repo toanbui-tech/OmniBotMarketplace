@@ -12,16 +12,5 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  },
-  modules: {
-    eventBus: {
-      resolve: "@medusajs/event-bus-local",
-    },
-    cache: {
-      resolve: "@medusajs/cache-inmemory",
-    },
-    queue: {
-      resolve: "@medusajs/queue-inmemory",
-    },
   }
 })
