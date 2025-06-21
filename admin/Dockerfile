@@ -2,14 +2,22 @@
 FROM node:20-alpine AS base
 WORKDIR /app
 
-# Copy build output
-COPY .medusa/server/ ./
+# Copy the entire admin directory
+COPY admin/ ./admin/
 
-# Install dependencies
+# Change to admin directory and build
+WORKDIR /app/admin
+RUN yarn install --frozen-lockfile
+RUN npx medusa build
+
+# Move to server directory
+WORKDIR /app/admin/.medusa/server
+
+# Install production dependencies
 RUN yarn install --production --frozen-lockfile
 
 # Copy environment variables
-COPY .env.production .env.production
+COPY ../../admin/.env.production .env.production
 
 EXPOSE 9000
 
