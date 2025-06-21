@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  medusa:
+    build: .
+    env_file:
+      - .env.production
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgres
+      - redis
+    restart: always
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: medusa
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    restart: always
+volumes:
+  pgdata:
+  redisdata: 
