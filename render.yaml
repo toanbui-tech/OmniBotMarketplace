@@ -6,7 +6,6 @@ services:
     rootDir: admin
     buildCommand: yarn install && yarn build
     startCommand: yarn start
-    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
