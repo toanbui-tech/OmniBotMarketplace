@@ -1,0 +1,12 @@
+{
+  "name": "omnibot-marketplace",
+  "version": "1.0.0",
+  "description": "Script marketplace with MedusaJS backend",
+  "scripts": {
+    "build": "cd admin && yarn install && yarn build",
+    "start": "cd admin && yarn start"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+} 

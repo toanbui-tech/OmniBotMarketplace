@@ -26,4 +26,5 @@ services:
       - key: STRIPE_API_KEY
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
-        sync: false 
+        sync: false
+    autoDeploy: true 
