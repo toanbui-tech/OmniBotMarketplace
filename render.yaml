@@ -1,30 +1,26 @@
 services:
   - type: web
-    name: omnibot-marketplace-backend
+    name: medusa-api
     env: node
     plan: free
-    rootDir: admin
-    buildCommand: yarn install && yarn build
-    startCommand: yarn start
+    buildCommand: cd admin && yarn install && yarn build
+    startCommand: cd admin && yarn start
     envVars:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        sync: false
-      - key: REDIS_URL
-        sync: false
+        value: postgres://marketplace_postgres:Vu]Q"<F^^G2@\sE3@omnibot.cloud:5433/scripts_marketplace
+      - key: MEDUSA_ADMIN_DISABLE
+        value: true
+      - key: MEDUSA_ADMIN_SERVE
+        value: false
+      - key: MEDUSA_ADMIN_AUTO_REBUILD
+        value: false
       - key: JWT_SECRET
-        sync: false
+        value: your-super-secret-jwt-key-change-this-in-production
       - key: COOKIE_SECRET
-        sync: false
+        value: your-super-secret-cookie-key-change-this-in-production
       - key: STORE_CORS
-        sync: false
+        value: "*"
       - key: ADMIN_CORS
-        sync: false
-      - key: AUTH_CORS
-        sync: false
-      - key: STRIPE_API_KEY
-        sync: false
-      - key: STRIPE_WEBHOOK_SECRET
-        sync: false
-    autoDeploy: true
+        value: "*"

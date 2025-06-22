@@ -15,7 +15,7 @@
   "scripts": {
     "build": "medusa build",
     "seed": "medusa exec ./src/scripts/seed.ts",
-    "start": "node start-simple.js",
+    "start": "node start-api-only.js",
     "dev": "medusa develop",
     "migrate": "medusa db:migrate",
     "migrate:check": "medusa db:check",
